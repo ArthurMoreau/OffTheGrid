@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Off The Grid: Detection of Primitives for Feed-Forward 3D Gaussian Splatting.">
+  <meta name="keywords" content="Gaussian Splatting, Computer Vision">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Off The Grid: Detection of Primitives for Feed-Forward 3D Gaussian Splatting</title>
+
+  <link rel="stylesheet" href="static/css/bootstrap-4.4.1.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="icon" href="assets/other/flash.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/video_comparison.js"></script>
+  <script src="static/js/event_handler.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Off The Grid: Detection of Primitives for Feed-Forward 3D Gaussian Splatting</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Arthur Moreau, Richard Shaw, Michal Nazarczuk, Jisu Shin, Thomas Tanay, <br> Zhensong Zhang, Songcen Xu, Eduardo Pérez-Pellitero <br>
+              <br> Huawei Noah's Ark Lab</span>
+          </div>
+
+          <div class="column has-text-centered">
+             <div class="publication-links">
+              <span class="link-block">
+                <a href="assets/pdf/paper_v2.pdf" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/BlW-wFmHzD4?si=rEnoZPvwkLwOOfJc" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://github.com"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+              <!--<span class="link-block">
+                <a href="https://huggingface.co/charge-benchmark/Charge" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>-->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <img src="assets/images/tease.png"
+                 class="centre-img"
+                 alt="Interpolate start reference image."/>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Off The Grid</span> is a new method for Feed-Forward (Pose-Free) 3D Gaussian Splatting. Instead of placing primitives in a regular grid, we detect subpixel Gaussians locations. Our model produce more accurate 3D Gaussians models while using much less primitives.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Feed-forward 3D Gaussian Splatting (3DGS) models enable real-time scene generation but are hindered by suboptimal pixel-aligned primitive placement,
+            which relies on a dense, rigid grid and limits both quality and efficiency. We introduce a new feed-forward architecture that detects 3D Gaussian primitives
+            at a sub-pixel level, replacing the pixel grid with an adaptive, "Off The Grid" distribution. Inspired by keypoint detection, our multi-resolution decoder
+            learns to distribute primitives across image patches. This module is trained end-to-end with a 3D reconstruction backbone using self-supervised learning.
+            Our resulting pose-free model generates photorealistic scenes in seconds, achieving state-of-the-art novel view synthesis for feed-forward models. 
+            It outperforms competitors while using far fewer primitives, demonstrating a more accurate and efficient allocation that captures fine details and
+            reduces artifacts. Moreover, we observe that by learning to render 3D Gaussians, our 3D reconstruction backbone improves camera pose estimation, 
+            suggesting opportunities to train these foundational models without labels.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/BlW-wFmHzD4?si=EkKVzASO68JqV0xt"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-bottom: 20px;">Novel View Synthesis</h2>
+        <h2 class="subtitle has-text-centered" style="margin-bottom: 10px;">Models created using 6 images from DL3DV-Benchmark scenes. We compare interpolated and extrapolated view synthesis between AnySplat and our model. 
+          Off The Grid presents higher quality geometry and less artifacts than AnySlat, especially visible during the spiral motion.</h2>
+        <div class="container">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+
+            <!--<div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias0" loop playsinline autoplay muted src="assets/videos/comparison_video_1.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias0Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>-->
+
+            <div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias1" loop playsinline autoplay muted src="assets/videos/comparison_video_6.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias1Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>
+
+            <div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias2" loop playsinline autoplay muted src="assets/videos/comparison_video_17.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias2Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>
+
+            <!-- <div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias3" loop playsinline autoplay muted src="assets/videos/comparison_video_31.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias3Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>-->
+
+            <div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias4" loop playsinline autoplay muted src="assets/videos/comparison_video_35.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias4Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>
+
+            <!--<div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias5" loop playsinline autoplay muted src="assets/videos/comparison_video_37.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias5Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>-->
+
+            <!--<div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias6" loop playsinline autoplay muted src="assets/videos/comparison_video_45.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias6Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>-->
+
+            <div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias7" loop playsinline autoplay muted src="assets/videos/comparison_video_47.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias7Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>
+
+            <div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias8" loop playsinline autoplay muted src="assets/videos/comparison_video_48.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias8Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>
+
+            <div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias9" loop playsinline autoplay muted src="assets/videos/comparison_video_53.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias9Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>
+
+            <!--<div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias10" loop playsinline autoplay muted src="assets/videos/comparison_video_55.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias10Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>-->
+
+            <!--<div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias11" loop playsinline autoplay muted src="assets/videos/comparison_video_66.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias11Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>-->
+
+            <div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias12" loop playsinline autoplay muted src="assets/videos/comparison_video_82.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias12Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>
+
+            <!--<div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias13" loop playsinline autoplay muted src="assets/videos/comparison_video_86.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias13Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>-->
+
+            <div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias14" loop playsinline autoplay muted src="assets/videos/comparison_video_96.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias14Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>
+
+            <div class="video-item">
+              <div class="video-container" style="width: 100%; position: relative;">
+                <video class="video" id="xyalias15" loop playsinline autoplay muted src="assets/videos/comparison_video_100.mp4" onplay="resizeAndPlay(this, 2)" style="width: 100%; height: 0px; position: absolute; object-fit: contain;"></video>
+                <canvas id="xyalias15Merge" class="videoMerge" style="display: block; width: 100%;" width="1036" height="518"></canvas>
+              </div>
+            </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      
+      <h2 class="title is-3">Method</h2>
+
+      <!-- Image 1 -->
+      <div class="method-figure">
+        <p class="image-caption">
+          We fine-tune VGGT to predict and render 3D Gaussians in a
+           self-supervised loop that does not require 3D annotations for training.
+        </p>
+        <img src="./assets/images/figure2_model.png"
+             class="teaser-image small-image"
+             alt="OffTheGrid pipeline"/>
+        
+      </div>
+
+      <!-- Image 2 -->
+      <div class="method-figure">
+        <p class="image-caption">
+          Our 3D Gaussians Decoder learns to detect and describe 3D primitives from 2D images, depths and latent features.
+        </p>
+        <img src="./assets/images/figure3_model.png"
+             class="teaser-image small-image"
+             alt="OffTheGrid pipeline"/>
+        
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      
+      <h2 class="title is-3">Effect of Fine-Tuning on 3D geometry</h2>
+
+      <!-- Image 1 -->
+      <div class="method-figure">
+        <p class="image-caption">
+          Fine-tuning VGGT for rendering with our method enables to avoid depth estimation failure cases in specular or sky areas. 
+        </p>
+        <img src="./assets/images/depth.png"
+             class="teaser-image small-image"
+             alt="OffTheGrid pipeline"/>
+             <p class="image-caption">
+              We also observe that our fine-tuning improves camera pose and focal length estimations, check the paper for more details !
+            </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{moreau2023human,
+      title={Off The Grid: Detection of Primitives for Feed-Forward 3D Gaussian Splatting},
+      author={Moreau, Arthur and Shaw, Richard and Nazarczuk, Michal  and Shin, Jisu and Tanay, Thomas and Zhang, Zhensong, and Xu, Songcen and P{\'e}rez-Pellitero, Eduardo},
+      journal={arXiv preprint},
+      year={2025}
+    }</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">Nerfies</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
